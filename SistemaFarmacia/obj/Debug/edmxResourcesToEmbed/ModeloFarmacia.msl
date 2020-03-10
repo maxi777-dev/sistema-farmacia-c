@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FarmaciaStoreContainer" CdmEntityContainer="Farmacia">
+    <EntitySetMapping Name="Bitacora_precios">
+      <EntityTypeMapping TypeName="Farmacia.Bitacora_precios">
+        <MappingFragment StoreEntitySet="Bitacora_precios">
+          <ScalarProperty Name="ID_TEMP" ColumnName="ID_TEMP" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudad">
+      <EntityTypeMapping TypeName="Farmacia.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+          <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE_CIUDAD" />
+          <ScalarProperty Name="COD_POSTAL" ColumnName="COD_POSTAL" />
+          <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="Farmacia.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="TELEFONO1" ColumnName="TELEFONO1" />
+          <ScalarProperty Name="TELEFONO2" ColumnName="TELEFONO2" />
+          <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="CARACT_TEL1" ColumnName="CARACT_TEL1" />
+          <ScalarProperty Name="CARACT_TEL2" ColumnName="CARACT_TEL2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drogas">
+      <EntityTypeMapping TypeName="Farmacia.Drogas">
+        <MappingFragment StoreEntitySet="Drogas">
+          <ScalarProperty Name="ID_DROGA" ColumnName="ID_DROGA" />
+          <ScalarProperty Name="NOMBRE_DROGA" ColumnName="NOMBRE_DROGA" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presentaciones">
+      <EntityTypeMapping TypeName="Farmacia.Presentaciones">
+        <MappingFragment StoreEntitySet="Presentaciones">
+          <ScalarProperty Name="ID_PRESENTACION" ColumnName="ID_PRESENTACION" />
+          <ScalarProperty Name="DETALLE_PRESENTACION" ColumnName="DETALLE_PRESENTACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="Farmacia.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="NOMBRE_PRODUCTO" ColumnName="NOMBRE_PRODUCTO" />
+          <ScalarProperty Name="CANTIDAD_PRODUCTO" ColumnName="CANTIDAD_PRODUCTO" />
+          <ScalarProperty Name="ID_UNIDAD" ColumnName="ID_UNIDAD" />
+          <ScalarProperty Name="ID_PRESENTACION" ColumnName="ID_PRESENTACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Drogas">
+      <EntityTypeMapping TypeName="Farmacia.Productos_Drogas">
+        <MappingFragment StoreEntitySet="Productos/Drogas">
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="ID_DROGA" ColumnName="ID_DROGA" />
+          <ScalarProperty Name="CANTIDAD_DROGA" ColumnName="CANTIDAD_DROGA" />
+          <ScalarProperty Name="ID_UNIDAD" ColumnName="ID_UNIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincia">
+      <EntityTypeMapping TypeName="Farmacia.Provincia">
+        <MappingFragment StoreEntitySet="Provincia">
+          <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+          <ScalarProperty Name="NOMBRE_PROVINCIA" ColumnName="NOMBRE_PROVINCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Farmacia.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temp2">
+      <EntityTypeMapping TypeName="Farmacia.Temp2">
+        <MappingFragment StoreEntitySet="Temp2">
+          <ScalarProperty Name="ID_TEMP" ColumnName="ID_TEMP" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_PRESENTACION" ColumnName="ID_PRESENTACION" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="COMPONENTES" ColumnName="COMPONENTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidades">
+      <EntityTypeMapping TypeName="Farmacia.Unidades">
+        <MappingFragment StoreEntitySet="Unidades">
+          <ScalarProperty Name="ID_UNIDAD" ColumnName="ID_UNIDAD" />
+          <ScalarProperty Name="DETALLE_UNIDAD" ColumnName="DETALLE_UNIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="Farmacia.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VClientes_">
+      <EntityTypeMapping TypeName="Farmacia.VClientes_">
+        <MappingFragment StoreEntitySet="VClientes_">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VTemp2">
+      <EntityTypeMapping TypeName="Farmacia.VTemp2">
+        <MappingFragment StoreEntitySet="VTemp2">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="PRESENTACIÓN" ColumnName="PRESENTACIÓN" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VVentas">
+      <EntityTypeMapping TypeName="Farmacia.VVentas">
+        <MappingFragment StoreEntitySet="VVentas">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="MEDICAMENTO" ColumnName="MEDICAMENTO" />
+          <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Agregar_Temp" FunctionName="Farmacia.Store.Agregar_Temp" />
+    <FunctionImportMapping FunctionImportName="Agregar_Venta" FunctionName="Farmacia.Store.Agregar_Venta" />
+    <FunctionImportMapping FunctionImportName="Aumentar_precios" FunctionName="Farmacia.Store.Aumentar_precios" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Temp" FunctionName="Farmacia.Store.Eliminar_Temp" />
+    <FunctionImportMapping FunctionImportName="Modificar_temp" FunctionName="Farmacia.Store.Modificar_temp" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Farmacia.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Farmacia.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Farmacia.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Farmacia.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Farmacia.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Farmacia.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Farmacia.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Farmacia.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Farmacia.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

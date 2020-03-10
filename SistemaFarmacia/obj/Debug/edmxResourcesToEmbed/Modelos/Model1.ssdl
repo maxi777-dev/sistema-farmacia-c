@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FarmaciaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bitacora_precios">
+    <Key>
+      <PropertyRef Name="ID_TEMP" />
+      <PropertyRef Name="FECHA" />
+    </Key>
+    <Property Name="ID_TEMP" Type="int" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="ID_CIUDAD" />
+    </Key>
+    <Property Name="ID_CIUDAD" Type="int" Nullable="false" />
+    <Property Name="NOMBRE_CIUDAD" Type="nvarchar(max)" />
+    <Property Name="COD_POSTAL" Type="int" />
+    <Property Name="ID_PROVINCIA" Type="int" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+    </Key>
+    <Property Name="ID_CLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar(max)" Nullable="false" />
+    <Property Name="APELLIDO" Type="varchar" MaxLength="63" />
+    <Property Name="TELEFONO1" Type="int" />
+    <Property Name="TELEFONO2" Type="int" />
+    <Property Name="ID_CIUDAD" Type="int" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar(max)" />
+    <Property Name="CARACT_TEL1" Type="int" />
+    <Property Name="CARACT_TEL2" Type="int" />
+  </EntityType>
+  <EntityType Name="Drogas">
+    <Key>
+      <PropertyRef Name="ID_DROGA" />
+    </Key>
+    <Property Name="ID_DROGA" Type="int" Nullable="false" />
+    <Property Name="NOMBRE_DROGA" Type="varchar(max)" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Presentaciones">
+    <Key>
+      <PropertyRef Name="ID_PRESENTACION" />
+    </Key>
+    <Property Name="ID_PRESENTACION" Type="tinyint" Nullable="false" />
+    <Property Name="DETALLE_PRESENTACION" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO" />
+    </Key>
+    <Property Name="ID_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="NOMBRE_PRODUCTO" Type="varchar(max)" Nullable="false" />
+    <Property Name="CANTIDAD_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="ID_UNIDAD" Type="int" Nullable="false" />
+    <Property Name="ID_PRESENTACION" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos/Drogas">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO" />
+      <PropertyRef Name="ID_DROGA" />
+    </Key>
+    <Property Name="ID_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="ID_DROGA" Type="int" Nullable="false" />
+    <Property Name="CANTIDAD_DROGA" Type="int" Nullable="false" />
+    <Property Name="ID_UNIDAD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="ID_PROVINCIA" />
+    </Key>
+    <Property Name="ID_PROVINCIA" Type="int" Nullable="false" />
+    <Property Name="NOMBRE_PROVINCIA" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Temp2">
+    <Key>
+      <PropertyRef Name="ID_TEMP" />
+    </Key>
+    <Property Name="ID_TEMP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar(max)" Nullable="false" />
+    <Property Name="ID_PRESENTACION" Type="tinyint" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="COMPONENTES" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Unidades">
+    <Key>
+      <PropertyRef Name="ID_UNIDAD" />
+    </Key>
+    <Property Name="ID_UNIDAD" Type="int" Nullable="false" />
+    <Property Name="DETALLE_UNIDAD" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ventas">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+      <PropertyRef Name="ID_PRODUCTO" />
+      <PropertyRef Name="FECHA" />
+    </Key>
+    <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="CANTIDAD" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Farmacia.dbo.VClientes_' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VClientes_">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="LOCALIDAD" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="129" />
+    <Property Name="LOCALIDAD" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Farmacia.dbo.VTemp2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VTemp2">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="NOMBRE" />
+      <PropertyRef Name="PRESENTACIÓN" />
+      <PropertyRef Name="PRECIO" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="PRESENTACIÓN" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Farmacia.dbo.VVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VVentas">
+    <Key>
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="CANTIDAD" />
+      <PropertyRef Name="MEDICAMENTO" />
+      <PropertyRef Name="ID_CLIENTE" />
+      <PropertyRef Name="ID_PRODUCTO" />
+    </Key>
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="129" />
+    <Property Name="CANTIDAD" Type="tinyint" Nullable="false" />
+    <Property Name="MEDICAMENTO" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bitacora_precios_Temp2">
+    <End Role="Temp2" Type="Self.Temp2" Multiplicity="1" />
+    <End Role="Bitacora_precios" Type="Self.Bitacora_precios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Temp2">
+        <PropertyRef Name="ID_TEMP" />
+      </Principal>
+      <Dependent Role="Bitacora_precios">
+        <PropertyRef Name="ID_TEMP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ciudad_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Temp2_Presentaciones">
+    <End Role="Presentaciones" Type="Self.Presentaciones" Multiplicity="1" />
+    <End Role="Temp2" Type="Self.Temp2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presentaciones">
+        <PropertyRef Name="ID_PRESENTACION" />
+      </Principal>
+      <Dependent Role="Temp2">
+        <PropertyRef Name="ID_PRESENTACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_Clientes">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Agregar_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar(max)" Mode="In" />
+    <Parameter Name="apellido" Type="varchar" Mode="In" />
+    <Parameter Name="telefono1" Type="int" Mode="In" />
+    <Parameter Name="telefono2" Type="int" Mode="In" />
+    <Parameter Name="id_ciudad" Type="int" Mode="In" />
+    <Parameter Name="direccion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="caract1" Type="tinyint" Mode="In" />
+    <Parameter Name="caract2" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="Agregar_Temp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="idpresentacion" Type="tinyint" Mode="In" />
+    <Parameter Name="precio" Type="decimal" Mode="In" />
+    <Parameter Name="componentes" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Agregar_Venta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcliente" Type="int" Mode="In" />
+    <Parameter Name="idprodcuto" Type="int" Mode="In" />
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="cantidad" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="Aumentar_precios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="porcentaje" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Temp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="Modificar_temp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="idpresentacion" Type="tinyint" Mode="In" />
+    <Parameter Name="precio" Type="decimal" Mode="In" />
+    <Parameter Name="componentes" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="FarmaciaModelStoreContainer">
+    <EntitySet Name="Bitacora_precios" EntityType="Self.Bitacora_precios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Drogas" EntityType="Self.Drogas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Presentaciones" EntityType="Self.Presentaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos/Drogas" EntityType="Self.Productos/Drogas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Temp2" EntityType="Self.Temp2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VClientes_" EntityType="Self.VClientes_" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VClientes_].[ID] AS [ID], 
+    [VClientes_].[NOMBRE] AS [NOMBRE], 
+    [VClientes_].[LOCALIDAD] AS [LOCALIDAD], 
+    [VClientes_].[DIRECCION] AS [DIRECCION]
+    FROM [dbo].[VClientes_] AS [VClientes_]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VTemp2" EntityType="Self.VTemp2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VTemp2].[ID] AS [ID], 
+    [VTemp2].[NOMBRE] AS [NOMBRE], 
+    [VTemp2].[PRESENTACIÓN] AS [PRESENTACIÓN], 
+    [VTemp2].[PRECIO] AS [PRECIO]
+    FROM [dbo].[VTemp2] AS [VTemp2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VVentas" EntityType="Self.VVentas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VVentas].[FECHA] AS [FECHA], 
+    [VVentas].[NOMBRE] AS [NOMBRE], 
+    [VVentas].[CANTIDAD] AS [CANTIDAD], 
+    [VVentas].[MEDICAMENTO] AS [MEDICAMENTO], 
+    [VVentas].[ID_CLIENTE] AS [ID_CLIENTE], 
+    [VVentas].[ID_PRODUCTO] AS [ID_PRODUCTO]
+    FROM [dbo].[VVentas] AS [VVentas]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Bitacora_precios_Temp2" Association="Self.FK_Bitacora_precios_Temp2">
+      <End Role="Temp2" EntitySet="Temp2" />
+      <End Role="Bitacora_precios" EntitySet="Bitacora_precios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ciudad_Provincia" Association="Self.FK_Ciudad_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Temp2_Presentaciones" Association="Self.FK_Temp2_Presentaciones">
+      <End Role="Presentaciones" EntitySet="Presentaciones" />
+      <End Role="Temp2" EntitySet="Temp2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_Clientes" Association="Self.FK_Ventas_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
